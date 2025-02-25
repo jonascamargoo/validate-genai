@@ -28,7 +28,7 @@ wheels = [
 ]
 
 [[package]]
-name = "validate-genai"
+name = "validate-chatbot"
 version = "0.1.0"
 source = { virtual = "." }
 dependencies = [

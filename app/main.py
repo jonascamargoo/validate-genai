@@ -1,7 +1,7 @@
-from pre_processing import preprocess_portuguese_text
-from dataset_example import load_example_dataset
-from dataset_b2b import load_b2b_dataset
-from dataset_0list import load_b2b_dataset
+from app.pre_processing.pre_processor import preprocess_portuguese_text
+from datasets.dataset_example import load_example_dataset
+# from datasets.dataset_b2b import load_b2b_dataset
+# from datasets.dataset_0list import load_b2b_dataset
 from training import train_model
 from evaluation import evaluate_model
 from visualization import plot_sentiment_distribution

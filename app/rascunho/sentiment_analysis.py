@@ -9,6 +9,7 @@ from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer
 # nltk.download('punkt')
 # nltk.download('punkt_tab')
 # nltk.download('rslp')
+# nltk.download('wordnet')
 
 # dataset
 # data = {
@@ -23,32 +24,33 @@ from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer
 
 dataset = pd.read_csv('https://raw.githubusercontent.com/pycaret/pycaret/master/datasets/amazon.csv')
 df = pd.DataFrame(dataset)
+print(df)
 
 # PRE-PROCESSAMENTO
-def preprocess_text(text):
+# def preprocess_text(text):
     
-    # Converter para minúsculas e tokenizar
-    tokens = word_tokenize(text.lower())  
+#     # Converter para minúsculas e tokenizar
+#     tokens = word_tokenize(text.lower())  
 
-    # Selecionando as stopwords em portugues
-    stop_words = set(stopwords.words('portuguese'))
+#     # Selecionando as stopwords em portugues
+#     stop_words = set(stopwords.words('portuguese'))
 
-    # Remover stopwords e pontuação
-    # filtered_tokens = [token for token in tokens if word.isalpha() and word not in stop_words] o isalpha estava prejudicando a semantica...
-    filtered_tokens = [token for token in tokens if token not in stop_words]
+#     # Remover stopwords e pontuação
+#     # filtered_tokens = [token for token in tokens if word.isalpha() and word not in stop_words] o isalpha estava prejudicando a semantica...
+#     filtered_tokens = [token for token in tokens if token not in stop_words]
 
-    # Stemmer para português
-    # stemmer = RSLPStemmer()
-    # stemmed_tokens = [stemmer.stem(word) for word in filtered_tokens] Reduz as palavras ao seu radical (stem), muitas vezes removendo sufixos sem considerar a gramática da palavra. Isso prejudica a semântica... vou optar por lemetizar
+#     # Stemmer para português
+#     # stemmer = RSLPStemmer()
+#     # stemmed_tokens = [stemmer.stem(word) for word in filtered_tokens] Reduz as palavras ao seu radical (stem), muitas vezes removendo sufixos sem considerar a gramática da palavra. Isso prejudica a semântica... vou optar por lemetizar
 
-    # Lemmatize the tokens
-    lemmatizer = WordNetLemmatizer()
-    lemmatized_tokens = [lemmatizer.lemmatize(token) for token in filtered_tokens]
-    processed_text = ' '.join(lemmatized_tokens)
+#     # Lemmatize the tokens
+#     lemmatizer = WordNetLemmatizer()
+#     lemmatized_tokens = [lemmatizer.lemmatize(token) for token in filtered_tokens]
+#     processed_text = ' '.join(lemmatized_tokens)
 
-    return processed_text
+#     return processed_text
 
-df['processedText'] = df['reviewText'].apply(preprocess_text)
+# df['processedText'] = df['reviewText'].apply(preprocess_text)
 
 # # ANALISE DE SENTIMENTOS
 # analyzer = SentimentIntensityAnalyzer()

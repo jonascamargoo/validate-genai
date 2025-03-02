@@ -1,4 +1,4 @@
-from app.pre_processing.pre_processor import preprocess_portuguese_text
+from app.pre_processing.pre_processor import pre_process_portuguese
 from datasets.dataset_example import load_example_dataset
 # from datasets.dataset_b2b import load_b2b_dataset
 # from datasets.dataset_0list import load_b2b_dataset
@@ -8,7 +8,7 @@ from visualization import plot_sentiment_distribution
 
 # Carregar dataset
 df = load_example_dataset()
-df['processed_text'] = df['review_text'].apply(preprocess_portuguese_text)
+df['processed_text'] = df['review_text'].apply(pre_process_portuguese)
 
 # Treinar modelo
 model, vectorizer, X_test_vectorized, y_test = train_model(df)

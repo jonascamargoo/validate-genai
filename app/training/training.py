@@ -40,3 +40,19 @@ def train_model(df):
     model.fit(X_train_vectorized, y_train)
 
     return model, vectorizer, X_test_vectorized, y_test
+
+
+    """Relatório de classificação:
+        precision    recall  f1-score   support
+
+        péssimo       0.71      0.72      0.71      5474
+        ruim       0.25      0.27      0.26      1678
+        Neutro       0.33      0.27      0.30      3263
+        bom       0.43      0.31      0.36      6469
+        ótimo       0.60      0.73      0.66      9591
+
+        accuracy                           0.54     26475
+        macro avg       0.46      0.46      0.46     26475
+        weighted avg       0.52      0.54      0.53     26475
+        
+    """

@@ -1,21 +1,26 @@
-from app.pre_processing.pre_processor import pre_process_portuguese
-from datasets.dataset_example import load_example_dataset
-# from datasets.dataset_b2b import load_b2b_dataset
-# from datasets.dataset_0list import load_b2b_dataset
-from training import train_model
+from pre_processing.pre_processor import load_df_processed
+from training.training import train_model
 from evaluation import evaluate_model
 from visualization import plot_sentiment_distribution
+from sklearn.metrics import classification_report
+from training.training import train_model
+from training.training_embedding import train_model
 
 # Carregar dataset
-df = load_example_dataset()
-df['processed_text'] = df['review_text'].apply(pre_process_portuguese)
+df = load_df_processed()
 
 # Treinar modelo
+# model, vectorizer, X_test_vectorized, y_test = train_model(df)
 model, vectorizer, X_test_vectorized, y_test = train_model(df)
 
 # Avaliar modelo
-class_names = ['Negativo', 'Positivo', 'Neutro']
-evaluate_model(model, X_test_vectorized, y_test, class_names)
+y_pred = model.predict(X_test_vectorized)
+print("\nRelatório de classificação:")
+print(classification_report(y_test, y_pred, target_names=['péssimo', 'ruim', 'Neutro', 'bom', 'ótimo']))
 
-# Visualizar dados
-plot_sentiment_distribution(df)
+# # Visualizar dados
+# plot_sentiment_distribution(df)
+
+
+# evaluate_model(model, X_test_vectorized, y_test, ['Negativo', 'Positivo', 'Neutro'])
+

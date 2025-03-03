@@ -1,7 +1,7 @@
 # AVALIAÇÃO DO MODELO
 
 from sklearn.metrics import classification_report
-from training import train_model
+from training.training import train_model
 import pandas as pd
 
 """  

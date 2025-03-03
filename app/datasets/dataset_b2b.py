@@ -5,10 +5,12 @@ import pandas as pd
 # Carrega o dataset de reviews
 df = pd.read_csv("B2W-Reviews01.csv", encoding="utf-8")
 
-# Converter a nota (rating) em categorias de sentimento:
-#   - Positivo (1) para ratings acima de 3
-#   - Neutro (2) para ratings igual a 3
-#   - Negativo (0) para ratings abaixo de 3
+"""Converter a nota (rating) em categorias de sentimento:
+Esse mapeamento é necessário caso eu queira trabalhar com apenas 3 pontuações
+   - Positivo (1) para ratings acima de 3
+   - Neutro (2) para ratings igual a 3
+   - Negativo (0) para ratings abaixo de 3"""
+   
 df['sentiment'] = df['overall_rating'].apply(lambda x: 1 if x > 3 else (0 if x < 3 else 2))
 # print(df.head())
 

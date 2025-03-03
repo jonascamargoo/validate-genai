@@ -1,3 +1,5 @@
+# AVALIAÇÃO DO MODELO
+
 from sklearn.metrics import classification_report
 
 def evaluate_model(model, X_test_vectorized, y_test, class_names):

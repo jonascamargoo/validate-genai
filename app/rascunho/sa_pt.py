@@ -173,6 +173,8 @@ X_test_vectorized = vectorizer.transform(X_test)
 model = MultinomialNB()  # Instancia o modelo
 model.fit(X_train_vectorized, y_train)  # Treina o modelo com os dados de treino
 
+# _----------------------------------------------------------
+
 # AVALIAÇÃO DO MODELO
 
 # Predição no conjunto de teste

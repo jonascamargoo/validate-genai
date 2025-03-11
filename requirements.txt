@@ -23,3 +23,9 @@ openpyxl>=3.0.9
 
 
 gensim
+
+sentence-transformers
+
+
+selenium
+webdriver-manager
